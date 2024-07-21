@@ -22,8 +22,8 @@ def spliting_data(filtered_df):
     # print(train.shape[0])
     test_df = shuffled_df[train_size:]
     # print(test.shape[0])
-    train_df.to_csv("train_dataset", index=False) 
-    test_df.to_csv("test_dataset", index=False) 
+    train_df.to_csv("train_dataset.csv", index=False) 
+    test_df.to_csv("test_dataset.csv", index=False) 
 
 
 if __name__ == "__main__":
