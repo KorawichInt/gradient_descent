@@ -9,7 +9,7 @@ def filtering_dataset(input_path, selected_columns):
     return filtered_df
 
 # Split dataset
-def spliting_data(filtered_df, full_dir):
+def spliting_data(filtered_df, path_dir):
     # print(filtered_df.head(5))
     shuffled_df = filtered_df.sample(frac=1)
     # print(shuffled_df.head(5))
@@ -22,16 +22,14 @@ def spliting_data(filtered_df, full_dir):
     # print(train.shape[0])
     test_df = shuffled_df[train_size:]
     # print(test.shape[0])
-    train_df.to_csv(f"{full_dir}/train_dataset.csv", index=False) 
-    test_df.to_csv(f"{full_dir}/test_dataset.csv", index=False) 
+    train_df.to_csv(f"{path_dir}/train_dataset.csv", index=False) 
+    test_df.to_csv(f"{path_dir}/test_dataset.csv", index=False) 
 
 
 if __name__ == "__main__":
-    save_path = "dataset"
-    num_dir = input("Enter which number of num directory you want to prepocess : ")
-    full_dir = f"{save_path}{num_dir}"
-    input_path = f"{full_dir}/dataset.csv"
+    path_dir = "dataset2"
+    input_path = f"{path_dir}/dataset.csv"
     # selected_columns = ["Hours Studied", "Sample Question Papers Practiced", "Previous Scores"]
     selected_columns = ["number_courses", "time_study", "Marks"]
     filtered_df = filtering_dataset(input_path, selected_columns)
-    spliting_data(filtered_df, full_dir)
+    spliting_data(filtered_df, path_dir)
